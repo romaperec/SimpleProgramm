@@ -22,10 +22,10 @@ fn main() {
 
     io::stdin()
         .read_line(&mut name)
-        .expect("msg");
+        .expect("Failed to read input");
 
     let mut user = User {
-        nickname: name.to_string(),
+        nickname: name.trim().to_string(),
         stats: HashMap::new(),
     };
 
@@ -42,7 +42,7 @@ fn main() {
 
         io::stdin()
             .read_line(&mut command)
-            .expect("msg");
+            .expect("Failed to read input");
 
         let command = command.trim();
 
