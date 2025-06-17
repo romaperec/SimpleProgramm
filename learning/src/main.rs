@@ -13,7 +13,7 @@ fn main() {
     println!("{}", "Created by romaperec".green().bold());
     println!("{}", "---------------------\n\n".green().bold());
 
-    println!("{}", "Info | Enter your name: ".red());
+    println!("{}", "Info | Enter your name:".red());
 
     let mut name = String::new();
 
@@ -29,11 +29,28 @@ fn main() {
     user.stats.insert("money".to_string(), 1000);
     user.stats.insert("level".to_string(), 1);
 
-    println!("Good morning, {}!", user.nickname.trim().red().bold());
     
-    println!("\nStats: {}", user.nickname.trim().red().bold());
+    loop {
+        println!("Good morning, {}!", user.nickname.trim().red().bold());
+        println!("{}", "Menu".red().bold());
+        println!("{}", "Help commands - -h.");
 
-    for (key, value) in &user.stats {
-        println!("{}: {}", key.green(), value.to_string().yellow().bold());
+        let mut command = String::new();
+
+        io::stdin()
+            .read_line(&mut command)
+            .expect("msg");
+
+        let command = command.trim();
+
+        if command == "-h" {
+            print_help();
+        } else {
+            println!("{}", "Error | Unknown command. Type -h for help.".red().bold());
+        }
     }
+}
+
+fn print_help() {
+    println!("{}", "Help menu:".blue().bold());
 }
