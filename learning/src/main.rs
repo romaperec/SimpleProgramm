@@ -48,11 +48,11 @@ fn main() {
 
         if command == "-h" {
             print_help();
+        } else if command == "-exit" {
+            break;
         } else if command == "-stats" {
             print_user_stats(&user);
-        }
-        
-        else {
+        } else {
             println!("{}", "\n\n---------------------".green().bold());
             println!("{}", "Error | Unknown command. Type -h for help.".red().bold());
             println!("{}", "---------------------\n\n".green().bold());
@@ -64,6 +64,7 @@ fn print_help() {
     println!("{}", "\n\n---------------------".green().bold());
     println!("{}", "Help menu:".blue().bold());
     println!("{}", "User stats - -stats".green().bold());
+    println!("{}", "Exit - -exit".green().bold());
     println!("{}", "---------------------\n\n".green().bold());
     thread::sleep(Duration::from_secs(2));
 }
